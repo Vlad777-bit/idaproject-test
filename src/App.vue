@@ -1,9 +1,12 @@
 <template>
-  <h1 class="title">Hello Vue</h1>
+  <app-header />
 </template>
 
 <script>
+import AppHeader from "./components/AppHeader.vue";
+
 export default {
   name: "App",
+  components: { AppHeader },
 };
 </script>
