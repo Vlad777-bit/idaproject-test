@@ -15,9 +15,16 @@
   max-width: 1440px;
   margin: 0 auto;
 }
-
 // App
 @import "@/styles/blocks/app/app";
 
 // AppHeader
 @import "@/styles/blocks/app_header/app_header";
+
+// AppForm
+@import "@/styles/blocks/app_form/app_form";
+
+.disabled {
+  background: #eeeeee;
+  color: #b4b4b4;
+}

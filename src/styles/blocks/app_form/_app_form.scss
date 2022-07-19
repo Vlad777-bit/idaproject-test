@@ -1,0 +1,76 @@
+.form {
+  margin-top: 16px;
+
+  position: fixed;
+
+  width: 332px;
+  min-height: 440px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  background: $main-background;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
+    0px 6px 10px rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  padding: 25px;
+
+  &__label {
+    position: relative;
+
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  &__input {
+    @include input;
+  }
+
+  &__description {
+    @include input;
+
+    width: 284px;
+    height: 108px;
+    resize: none;
+  }
+
+  &__button {
+    margin-top: 10px;
+
+    width: 284px;
+    height: 36px;
+
+    border: none;
+    background: #7bae73;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    // Text
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+}
+
+.reqiredInput {
+  &:after {
+    content: "";
+    display: inline-block;
+
+    position: absolute;
+    top: 2px;
+    right: -5px;
+
+    width: 4px;
+    height: 4px;
+    background-color: #ff8484;
+    border-radius: 100%;
+  }
+}
