@@ -4,7 +4,7 @@
   position: fixed;
 
   width: 332px;
-  min-height: 440px;
+  height: 440px;
 
   display: flex;
   flex-direction: column;
@@ -51,6 +51,7 @@
     cursor: pointer;
 
     // Text
+    font-family: "Inter";
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
