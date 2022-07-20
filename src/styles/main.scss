@@ -3,6 +3,7 @@
 
 // Google fonts
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
 * {
   margin: 0;
@@ -12,7 +13,7 @@
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1376px;
   margin: 0 auto;
 }
 // App
@@ -24,7 +25,11 @@
 // AppForm
 @import "@/styles/blocks/app_form/app_form";
 
+// AppProduct
+@import "@/styles/blocks/app_product/app_product";
+
 .disabled {
   background: #eeeeee;
   color: #b4b4b4;
+  cursor: not-allowed;
 }

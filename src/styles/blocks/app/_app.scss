@@ -6,5 +6,8 @@
   background-color: $app-background;
 
   &__wrapper {
+    display: grid;
+    grid-template-columns: 332px 1fr;
+    gap: 16px;
   }
 }
