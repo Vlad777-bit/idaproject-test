@@ -18,7 +18,7 @@
   &__sort {
     padding: 10px 25px 10px 16px;
 
-    background: url("/src/assets/icons/arrow.svg") no-repeat calc(100% - 15px)
+    background: url("@/assets/icons/arrow.svg") no-repeat calc(100% - 15px)
       center $main-background;
     right: 10px;
     outline: 0;
