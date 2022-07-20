@@ -28,6 +28,12 @@
 
   &__input {
     @include input;
+
+    &:focus {
+      outline: none;
+      background-color: $app-background;
+      color: $main-color-text;
+    }
   }
 
   &__description {
@@ -36,6 +42,12 @@
     width: 284px;
     height: 108px;
     resize: none;
+
+    &:focus {
+      outline: none;
+      background-color: $app-background;
+      color: $main-color-text;
+    }
   }
 
   &__button {
