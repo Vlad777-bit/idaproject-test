@@ -16,6 +16,7 @@
   max-width: 1376px;
   margin: 0 auto;
 }
+
 // App
 @import "@/styles/blocks/app/app";
 
@@ -27,6 +28,26 @@
 
 // AppProduct
 @import "@/styles/blocks/app_product/app_product";
+
+// ModalForm
+@import "@/styles/blocks/app_form/modal_form";
+
+// Media
+
+// App
+@import "@/styles/blocks/app/app-media";
+
+// AppHeader
+@import "@/styles/blocks/app_header/app_header-media";
+
+// AppForm
+@import "@/styles/blocks/app_form/app_form-media";
+
+// ButtonForm
+@import "@/styles/blocks/app_form/button_form-media";
+
+// AppProduct
+@import "@/styles/blocks/app_product/app_product-media";
 
 .disabled {
   background: #eeeeee;

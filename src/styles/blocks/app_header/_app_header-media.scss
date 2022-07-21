@@ -1,0 +1,11 @@
+@media (max-width: 440px) {
+  .header {
+    &__wrapper {
+      flex-direction: column;
+    }
+
+    &__sort {
+      margin-top: 15px;
+    }
+  }
+}

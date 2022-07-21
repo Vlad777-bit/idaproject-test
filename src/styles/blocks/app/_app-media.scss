@@ -1,0 +1,9 @@
+@media (max-width: 1100px) {
+  .app {
+    padding: 15px;
+
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+}
