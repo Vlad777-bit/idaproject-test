@@ -1,11 +1,15 @@
 <template>
-  <label class="form__label" :for="id">{{ label }}</label>
-  <textarea
-    class="form__description"
-    :name="id"
-    :id="id"
-    :placeholder="placeholder"
-  ></textarea>
+  <div>
+    <label class="form__label" :for="id">{{ label }}</label>
+    <textarea
+      class="form__description"
+      :name="id"
+      :id="id"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    ></textarea>
+  </div>
 </template>
 
 <script>
@@ -27,6 +31,13 @@ export default {
       type: String,
       require: false,
     },
+
+    modelValue: {
+      type: String,
+      required: true,
+    },
   },
+
+  emits: ["update:modelValue"],
 };
 </script>

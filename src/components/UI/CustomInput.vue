@@ -1,20 +1,29 @@
 <template>
-  <label
-    class="form__label"
-    :class="{
-      reqiredInput: isRquired,
-    }"
-    :for="id"
-  >
-    {{ label }}
-  </label>
+  <div>
+    <label
+      class="form__label"
+      :class="{
+        reqiredInput: isRquired,
+      }"
+      :for="id"
+    >
+      {{ label }}
+    </label>
 
-  <input
-    class="form__input"
-    :type="typeInput"
-    :id="id"
-    :placeholder="placeholder"
-  />
+    <input
+      class="form__input"
+      :class="{
+        'error-input': !isValid,
+      }"
+      :type="typeInput"
+      :id="id"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
+
+    <span class="error-text" v-if="!isValid">{{ errorText }}</span>
+  </div>
 </template>
 
 <script>
@@ -46,6 +55,23 @@ export default {
       type: Boolean,
       required: false,
     },
+
+    isValid: {
+      type: Boolean,
+      required: false,
+    },
+
+    modelValue: {
+      type: String,
+      required: true,
+    },
+
+    errorText: {
+      type: String,
+      required: false,
+    },
   },
+
+  emits: ["update:modelValue"],
 };
 </script>

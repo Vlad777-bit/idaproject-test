@@ -48,3 +48,18 @@
   color: #b4b4b4;
   cursor: not-allowed;
 }
+
+.error-input {
+  border: 1px solid #ff8484;
+}
+
+.error-text {
+  margin-top: 4px;
+  display: block;
+
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 11px;
+  letter-spacing: -0.02em;
+  color: #ff8484;
+}
