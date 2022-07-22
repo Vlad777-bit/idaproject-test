@@ -2,10 +2,7 @@
   <div class="product">
     <div class="product__item" v-for="product in products" :key="product.id">
       <div class="product__img">
-        <img
-          :src="require(`../assets/img/${product.img}`)"
-          :alt="product.title"
-        />
+        <img :src="product.img" :alt="product.title" />
       </div>
 
       <div class="product__content">
