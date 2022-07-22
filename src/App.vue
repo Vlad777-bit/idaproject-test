@@ -25,6 +25,13 @@ export default {
     ProductList,
   },
 
+  created() {
+    const productData = localStorage.getItem("product-list");
+    if (productData) {
+      this.productList = JSON.parse(productData);
+    }
+  },
+
   data() {
     return {
       productList: [
@@ -80,9 +87,15 @@ export default {
     };
   },
 
+  watch: {
+    productList() {
+      localStorage.setItem("product-list", JSON.stringify(this.productList));
+    },
+  },
+
   methods: {
     addNewProduct(newProduct) {
-      this.productList.push(newProduct);
+      this.productList = [...this.productList, newProduct];
     },
 
     removeProduct(id) {
