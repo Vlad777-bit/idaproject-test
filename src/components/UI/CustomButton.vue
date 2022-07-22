@@ -4,4 +4,8 @@
   </button>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "CustomButton",
+};
+</script>
