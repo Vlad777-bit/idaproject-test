@@ -79,7 +79,7 @@ export default {
 
   methods: {
     addNewProduct(newProduct) {
-      this.productList.push(newProduct);
+      this.productList = [...this.productList, newProduct];
     },
   },
 };
