@@ -1,12 +1,15 @@
 <template>
   <div class="container">
-    <app-header />
+    <app-header v-model="selectedSort" :sortOptions="sortOptions" />
     <div class="app__wrapper">
       <app-form @add-product="addNewProduct" />
       <div class="app__empty" v-if="!productList.length">
         Список товаров отсутствует
       </div>
-      <product-list :products="productList" @remove-product="removeProduct" />
+      <product-list
+        :products="sortedProducts"
+        @remove-product="removeProduct"
+      />
     </div>
   </div>
 </template>
@@ -84,12 +87,27 @@ export default {
           price: "10 000",
         },
       ],
+
+      selectedSort: "",
+      sortOptions: [
+        { value: "title", name: "По наименованию" },
+        { value: "min", name: "По цене min" },
+        { value: "max", name: "По цене max" },
+      ],
     };
   },
 
   watch: {
     productList() {
       localStorage.setItem("product-list", JSON.stringify(this.productList));
+    },
+  },
+
+  computed: {
+    sortedProducts() {
+      return [...this.productList].sort((prod1, prod2) =>
+        prod1[this.selectedSort]?.localeCompare(prod2[this.selectedSort])
+      );
     },
   },
 
