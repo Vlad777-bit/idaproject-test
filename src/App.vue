@@ -3,7 +3,10 @@
     <app-header />
     <div class="app__wrapper">
       <app-form @add-product="addNewProduct" />
-      <product-list :products="productList" />
+      <div class="app__empty" v-if="!productList.length">
+        Список товаров отсутствует
+      </div>
+      <product-list :products="productList" @remove-product="removeProduct" />
     </div>
   </div>
 </template>
@@ -80,6 +83,10 @@ export default {
   methods: {
     addNewProduct(newProduct) {
       this.productList.push(newProduct);
+    },
+
+    removeProduct(id) {
+      this.productList = this.productList.filter((p) => p.id !== id);
     },
   },
 };
