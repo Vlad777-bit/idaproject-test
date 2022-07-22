@@ -1,5 +1,7 @@
 # idaproject-test
 
+## Node.js verson v16.16.0
+
 ## Project setup
 ```
 yarn ci
