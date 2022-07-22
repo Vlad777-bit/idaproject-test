@@ -122,3 +122,47 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "@/styles/base/vatiables";
+
+.container {
+  max-width: 1376px;
+  margin: 0 auto;
+}
+
+.app {
+  // если раскоментировать, в chromium появляется прокрутка снизу
+  // width: 100vw;
+  min-height: 100vh;
+
+  padding: 32px;
+  background-color: $app-background;
+
+  &__wrapper {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 332px 1fr;
+    gap: 16px;
+  }
+
+  &__empty {
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+// Media
+
+@media (max-width: 1100px) {
+  .app {
+    padding: 15px;
+
+    &__wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+</style>

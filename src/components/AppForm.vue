@@ -171,3 +171,52 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "@/styles/base/vatiables";
+
+.form {
+  margin-top: 16px;
+
+  position: fixed;
+
+  width: 332px;
+  height: 440px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  background: $main-background;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
+    0px 6px 10px rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  padding: 25px;
+}
+
+.reqiredInput {
+  &:after {
+    content: "";
+    display: inline-block;
+
+    position: absolute;
+    top: 2px;
+    right: -5px;
+
+    width: 4px;
+    height: 4px;
+    background-color: #ff8484;
+    border-radius: 100%;
+  }
+}
+
+// Media
+
+@media (max-width: 1100px) {
+  .form {
+    margin: 16px auto;
+    position: unset;
+  }
+}
+</style>

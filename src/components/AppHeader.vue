@@ -45,3 +45,35 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "@/styles/base/vatiables";
+
+.header {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    width: 250px;
+
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 600;
+
+    color: $main-color-text;
+  }
+}
+
+// Media
+
+@media (max-width: 440px) {
+  .header {
+    &__wrapper {
+      flex-direction: column;
+    }
+  }
+}
+</style>

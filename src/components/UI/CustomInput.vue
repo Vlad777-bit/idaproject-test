@@ -75,3 +75,29 @@ export default {
   emits: ["update:modelValue"],
 };
 </script>
+
+<style lang="scss">
+@import "@/styles/base/vatiables";
+@import "@/styles/base/mixins";
+
+.form {
+  &__label {
+    position: relative;
+
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  &__input {
+    @include input;
+
+    &:focus {
+      outline: none;
+      background-color: $app-background;
+      color: $main-color-text;
+    }
+  }
+}
+</style>

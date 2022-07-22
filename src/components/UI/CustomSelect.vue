@@ -34,3 +34,42 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "@/styles/base/vatiables";
+
+.header {
+  &__sort {
+    padding: 10px 25px 10px 16px;
+
+    background: url("@/assets/icons/arrow.svg") no-repeat calc(100% - 15px)
+      center $main-background;
+    right: 10px;
+    outline: 0;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    color: #b4b4b4;
+
+    // Arrow
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+  }
+}
+
+// Media
+
+@media (max-width: 440px) {
+  .header {
+    &__sort {
+      margin-top: 15px;
+    }
+  }
+}
+</style>
