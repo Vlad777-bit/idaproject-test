@@ -1,5 +1,6 @@
 .app {
-  width: 100vw;
+  // если раскоментировать, в chromium появляется прокрутка снизу
+  // width: 100vw;
   min-height: 100vh;
 
   padding: 32px;
