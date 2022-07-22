@@ -45,6 +45,7 @@
         :class="{
           disabled: !isDisabled,
         }"
+        @click="addNewProduct"
       >
         Добавить товар
       </custom-button>
@@ -75,6 +76,16 @@ export default {
     CustomButton,
   },
 
+  watch: {
+    productPrice() {
+      // Маску не смог реализовать. Реализация ниже, делает разделение не так как ожидается
+      // this.productPrice = this.productPrice.replace(
+      //   /\B(?=(\d{3})+(?!\d))/g,
+      //   " "
+      // );
+    },
+  },
+
   computed: {
     validName() {
       return this.productName.length !== 0;
@@ -94,6 +105,39 @@ export default {
         this.productPhotoLink.length &&
         this.productPrice.length
       );
+    },
+  },
+
+  methods: {
+    addNewProduct() {
+      const newProduct = {
+        id: Date.now(),
+        img: this.productPhotoLink,
+        title: this.productName,
+        description: this.productDesc,
+        price: this.productPrice,
+      };
+
+      this.$emit("add-product", newProduct);
+      this.clearForm();
+    },
+
+    clearForm() {
+      this.productName = "";
+      this.productDesc = "";
+      this.productPhotoLink = "";
+      this.productPrice = "";
+    },
+  },
+
+  emits: {
+    "add-product": (value) => {
+      if (value) {
+        return true;
+      } else {
+        console.error("Ошибка при добавлении");
+        return false;
+      }
     },
   },
 };

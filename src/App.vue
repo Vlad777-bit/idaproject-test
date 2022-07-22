@@ -2,7 +2,7 @@
   <div class="container">
     <app-header />
     <div class="app__wrapper">
-      <app-form />
+      <app-form @add-product="addNewProduct" />
       <product-list :products="productList" />
     </div>
   </div>
@@ -27,54 +27,60 @@ export default {
       productList: [
         {
           id: 1,
-          img: "item.png",
+          img: require("./assets/img/item.png"),
           title: "Наименование товара",
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-          price: 10000,
+          price: "10 000",
         },
         {
           id: 2,
-          img: "item.png",
+          img: require("./assets/img/item.png"),
           title: "Наименование товара",
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-          price: 10000,
+          price: "10 000",
         },
         {
           id: 3,
-          img: "item.png",
+          img: require("./assets/img/item.png"),
           title: "Наименование товара",
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-          price: 10000,
+          price: "10 000",
         },
         {
           id: 4,
-          img: "item.png",
+          img: require("./assets/img/item.png"),
           title: "Наименование товара",
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-          price: 10000,
+          price: "10 000",
         },
         {
           id: 5,
-          img: "item.png",
+          img: require("./assets/img/item.png"),
           title: "Наименование товара",
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-          price: 10000,
+          price: "10 000",
         },
         {
           id: 6,
-          img: "item.png",
+          img: require("./assets/img/item.png"),
           title: "Наименование товара",
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-          price: 10000,
+          price: "10 000",
         },
       ],
     };
+  },
+
+  methods: {
+    addNewProduct(newProduct) {
+      this.productList.push(newProduct);
+    },
   },
 };
 </script>
