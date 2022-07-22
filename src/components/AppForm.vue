@@ -6,8 +6,8 @@
         :type-input="'text'"
         :placeholder="'Введите наименование товара'"
         :id="'name'"
-        :is-rquired="true"
-        :is-valid="validName"
+        :is-rquired="require"
+        :is-valid="productNameIsValid"
         v-model="productName"
         :error-text="'Поле является обязательным'"
       />
@@ -24,8 +24,8 @@
         :type-input="'text'"
         :placeholder="'Введите ссылку'"
         :id="'linkImage'"
-        :is-rquired="true"
-        :is-valid="validPhotoLink"
+        :is-rquired="require"
+        :is-valid="productPhotoLinkIsValid"
         v-model="productPhotoLink"
         :error-text="'Поле является обязательным'"
       />
@@ -35,10 +35,11 @@
         :type-input="'text'"
         :placeholder="'Введите цену'"
         :id="'price'"
-        :is-rquired="true"
-        :is-valid="validPrice"
+        :is-rquired="require"
+        :is-valid="productPriceIsValid"
         v-model="productPrice"
         :error-text="'Поле является обязательным'"
+        @keypress="onlyNumbers"
       />
 
       <custom-button
@@ -64,9 +65,17 @@ export default {
   data() {
     return {
       productName: "",
+      productNameIsValid: true,
+
       productDesc: "",
+
       productPhotoLink: "",
+      productPhotoLinkIsValid: true,
+
       productPrice: "",
+      productPriceIsValid: true,
+
+      require: true,
     };
   },
 
@@ -77,34 +86,47 @@ export default {
   },
 
   watch: {
+    productName() {
+      if (this.productName.trim().length === 0) {
+        this.productNameIsValid = false;
+      } else {
+        this.productNameIsValid = true;
+      }
+    },
+
+    productPhotoLink() {
+      if (this.productPhotoLink.trim().length === 0) {
+        this.productPhotoLinkIsValid = false;
+      } else {
+        this.productPhotoLinkIsValid = true;
+      }
+    },
+
     productPrice() {
-      // Маску не смог реализовать. Реализация ниже, делает разделение не так как ожидается
-      // this.productPrice = this.productPrice.replace(
-      //   /\B(?=(\d{3})+(?!\d))/g,
-      //   " "
-      // );
+      if (this.productPrice.trim().length === 0) {
+        this.productPriceIsValid = false;
+      } else {
+        this.productPriceIsValid = true;
+
+        // Маску не смог реализовать. Реализация ниже, делает разделение не так как ожидается
+        // this.productPrice = this.productPrice.replace(
+        //   /\B(?=(\d{3})+(?!\d))/g,
+        //   " "
+        // );
+      }
     },
   },
 
   computed: {
-    validName() {
-      return this.productName.length !== 0;
-    },
-
-    validPhotoLink() {
-      return this.productPhotoLink.length !== 0;
-    },
-
-    validPrice() {
-      return this.productPrice.length !== 0;
-    },
-
     isDisabled() {
-      return (
+      if (
         this.productName.length &&
         this.productPhotoLink.length &&
         this.productPrice.length
-      );
+      ) {
+        return true;
+      }
+      return false;
     },
   },
 
@@ -127,6 +149,13 @@ export default {
       this.productDesc = "";
       this.productPhotoLink = "";
       this.productPrice = "";
+    },
+
+    onlyNumbers(event) {
+      const keyCode = event.keyCode ? event.keyCode : event.which;
+      if (keyCode < 48 || keyCode > 57) {
+        event.preventDefault();
+      }
     },
   },
 
